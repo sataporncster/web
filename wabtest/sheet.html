@@ -1,0 +1,23 @@
+<form action="https://sheetdb.io/api/v1/g4c021jy68avt" method="POST" id="sheetdb-form">
+  datetime:<input type="date"name="data[date]">
+  Name: <input name="data[name]">
+  Email: <input name="data[email]">
+  Email: <input name="data[ชื่อ]">
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  var form = document.getElementById('sheetdb-form');
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    fetch(form.action, {
+        method : "POST",
+        body: new FormData(document.getElementById("sheetdb-form")),
+    }).then(
+        response => response.json()
+    ).then((html) => {
+      // you can put any JS code here
+      alert('บันทึกเรียบร้อย')
+    });
+  });
+</script>

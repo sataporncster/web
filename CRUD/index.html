@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMAN 4 PPU</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<style>
+
+    *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+body{
+  background-color: #0a0033;
+  padding: 0 50px;
+}
+.wrapper{
+  max-width: 630px;
+  width: 100%;
+  background: #fff;
+  margin: 20px auto;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+  padding: 30px;
+}
+
+.wrapper .title{
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #0000FF;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.wrapper .form{
+  width: 100%;
+}
+
+.wrapper .form .inputfield{
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper .form .inputfield label{
+   width: 200px;
+   color: #757575;
+   margin-right: 10px;
+  font-size: 14px;
+}
+
+.wrapper .form .inputfield .input,
+.wrapper .form .inputfield .textarea{
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.wrapper .form .inputfield .textarea{
+  width: 100%;
+  height: 125px;
+  resize: none;
+}
+
+.wrapper .form .inputfield .custom_select{
+  position: relative;
+  width: 100%;
+  height: 37px;
+}
+
+.wrapper .form .inputfield .custom_select:before{
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  border: 8px solid;
+  border-color: #d5dbd9 transparent transparent transparent;
+  pointer-events: none;
+}
+
+.wrapper .form .inputfield .custom_select select{
+  -webkit-appearance: none;
+  -moz-appearance:   none;
+  appearance:        none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  border: 0px;
+  padding: 8px 10px;
+  font-size: 15px;
+  border: 1px solid #d5dbd9;
+  border-radius: 3px;
+}
+
+
+.wrapper .form .inputfield .input:focus,
+.wrapper .form .inputfield .textarea:focus,
+.wrapper .form .inputfield .custom_select select:focus{
+  border: 1px solid #fec107;
+}
+
+.wrapper .form .inputfield p{
+   font-size: 14px;
+   color: #757575;
+}
+.wrapper .form .inputfield .check{
+  width: 15px;
+  height: 15px;
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+.wrapper .form .inputfield .check input[type="checkbox"]{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.wrapper .form .inputfield .check .checkmark{
+  width: 15px;
+  height: 15px;
+  border: 1px solid #fec107;
+  display: block;
+  position: relative;
+}
+.wrapper .form .inputfield .check .checkmark:before{
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  width: 5px;
+  height: 2px;
+  border: 2px solid;
+  border-color: transparent transparent #fff #fff;
+  transform: rotate(-45deg);
+  display: none;
+}
+.wrapper .form .inputfield .btn{
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 15px;
+  border: 0px;
+  background: green;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+  outline: none;
+}
+
+.wrapper .form .inputfield .btn:hover{
+  background:blue;
+}
+
+.wrapper .form .inputfield2 .btn{
+  padding: 8px 10px;
+  font-size: 15px;
+  border: 0px;
+  background:  blue;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: none;
+  margin-left: 2px;
+}
+
+.wrapper .form .inputfield2 .btn:hover{
+  background: green;
+}
+
+.wrapper .form .inputfield:last-child{
+  margin-bottom: 0;
+}
+
+html{
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 6rem;
+  scroll-behavior: smooth;
+}
+
+.btn{
+  display: inline-block;
+  margin-top: 1rem;
+  background:green;
+  color:#fff;
+  padding:.8rem 3rem;
+  border:.2rem solid var(--orange);
+  cursor: pointer;
+  font-size: 1.7rem;
+}
+
+.btn:hover{
+  background:navy;
+  color:#fff;
+}
+
+#menu-bar{
+  border:.1rem solid #fff;
+  border-radius: .5rem;
+  font-size: 3rem;
+}
+
+  .modal .modal-dialog {
+    width: 700px;
+  }
+  .modal .modal-header, .modal .modal-body, .modal .modal-footer {
+    padding: 5px 5px;
+  }
+  #modal .modal-content {
+    border-radius: 1px;
+  }
+  .modal .modal-title {
+    display: inline-block;
+    }
+  .modal textarea.form-control {
+    resize: vertical;
+  }
+  .modal .btn {
+    border-radius: 1px;
+    min-width: 100px;
+  }
+  .modal form label {
+    font-weight: bold;
+  }
+
+@media (max-width:1200px){
+
+  html{
+    font-size: 55%;
+  }
+}
+
+@media (max-width:991px){
+  section{
+    padding:2rem;
+  }
+}
+
+@media (max-width:450px){
+  html{
+    font-size: 50%;
+  }
+
+
+@media (max-width:420px) {
+  .wrapper .form .inputfield{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .wrapper .form .inputfield label{
+    margin-bottom: 5px;
+  }
+  .wrapper .form .inputfield.terms{
+    flex-direction: row;
+  }
+}
+
+#loader {
+  border: 16px solid #0000CD;
+  border-radius: 50%;
+  border-top: 16px solid #FFFF00;
+  border-bottom: 16px solid #00BFFF;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  visibility:hidden;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+ </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>
+
+  var script_url = "https://script.google.com/macros/s/AKfycbwleUCsctUcimEhGUg2Jy-3TKpGznmZL6pNGKD6i1X809GfbvIMO5kkcfXU_bJOrySWYQ/exec";/////////////////
+
+
+// tambah data
+  function insert_value() {
+
+ $("#re").css("visibility","hidden");
+  document.getElementById("loader").style.visibility = "visible";
+ $('#mySpinner').addClass('spinner');
+
+ var id1= $("#id").val();
+ var nama= $("#nama").val();
+ var gender= $("#gender").val();
+ var alamat= $("#alamat").val();
+ var kelas= $("#kelas").val();
+ var jurusan= $("#jurusan").val();
+ var email= $("#email").val();
+ var kontak= $("#kontak").val();//////////////////
+
+ var url = script_url+"?callback=ctrlq&kontak="+kontak+"&email="+email+"&jurusan="+jurusan+"&kelas="+kelas+"&alamat="+alamat+"&gender="+gender+"&nama="+nama+"&id="+id1+"&action=insert";
+
+    var request = jQuery.ajax({
+      crossDomain: true,
+      url: url ,
+      method: "GET",
+      dataType: "jsonp"
+    });
+  }
+
+// perbaharui data
+  function update_value(){
+ $("#re").css("visibility","hidden");
+     document.getElementById("loader").style.visibility = "visible";
+
+ var id1= $("#id").val();
+ var nama= $("#nama").val();
+ var gender= $("#gender").val();
+ var alamat= $("#alamat").val();
+ var kelas= $("#kelas").val();
+ var jurusan= $("#jurusan").val();
+ var email= $("#email").val();
+ var kontak= $("#kontak").val();//////////////////
+
+var url = script_url+"?callback=ctrlq&kontak="+kontak+"&email="+email+"&jurusan="+jurusan+"&kelas="+kelas+"&alamat="+alamat+"&gender="+gender+"&nama="+nama+"&id="+id1+"&action=update";
+
+    var request = jQuery.ajax({
+      crossDomain: true,
+      url: url ,
+      method: "GET",
+      dataType: "jsonp"
+    });
+  }
+
+//hapus data
+  function delete_value(){
+ $("#re").css("visibility","hidden");
+     document.getElementById("loader").style.visibility = "visible";
+
+ $('#mySpinner').addClass('spinner');
+ var id1= $("#id").val();
+ var nama= $("#nama").val();
+ var gender= $("#gender").val();
+ var alamat= $("#alamat").val();
+ var kelas= $("#kelas").val();
+ var jurusan= $("#jurusan").val();
+ var email= $("#email").val();
+ var kontak= $("#kontak").val();//////////////////
+
+ var url = script_url+"?callback=ctrlq&kontak="+kontak+"&email="+email+"&jurusan="+jurusan+"&kelas="+kelas+"&alamat="+alamat+"&gender="+gender+"&nama="+nama+"&id="+id1+"&action=delete";
+
+    var request = jQuery.ajax({
+      crossDomain: true,
+      url: url ,
+      method: "GET",
+      dataType: "jsonp"
+    });
+  }
+
+  // print the returned data
+  function ctrlq(e) {
+ $("#re").html(e.result);
+ $("#re").css("visibility","visible");
+ read_value('');
+  }
+
+function read_value(srch) {
+
+    $("#re").css("visibility","hidden");
+    document.getElementById("loader").style.visibility = "visible";
+    var url = script_url+"?action=read";
+
+    $.getJSON(url, function (json) {
+
+// buat tabel yang menampilkan data
+        var table = document.createElement("table");
+        table.setAttribute("id", "myTable");
+        var header = table.createTHead();
+  var row = header.insertRow(0);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  var cell5 = row.insertCell(4);
+  var cell6 = row.insertCell(5);
+  var cell7 = row.insertCell(6);
+  var cell8 = row.insertCell(7);///////////////////
+  row.style.background = "rgb(15,0,0)";
+
+  cell1.innerHTML = "<b>ID</b>";
+  cell2.innerHTML = "<b>nama</b>";
+  cell3.innerHTML = "<b>gender</b>";
+  cell4.innerHTML = "<b>alamat</b>";
+  cell5.innerHTML = "<b>kelas</b>";
+  cell6.innerHTML = "<b>jurusan</b>";
+  cell7.innerHTML = "<b>email</b>";
+  cell8.innerHTML = "<b>kontak</b>";//////////////////
+
+//        alert(json.records);
+     // masukkan data ke dalam tabel
+      if (srch!=''){
+        for (var i = 0; i < json.records.length; i++) {
+
+          if(srch==json.records[i].ID){
+            tr = table.insertRow(-1);
+    var tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].ID;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Nama;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Gender;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Alamat;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Kelas;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Jurusan;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Email;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Kontak; //////////////////
+            }
+        }
+         $("#re").html("Informasi data siswa");
+        $("#re").css("visibility","visible");
+      } else {
+         for (var i = 0; i < json.records.length; i++) {
+
+            tr = table.insertRow(-1);
+    var tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].ID;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Nama;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Gender;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Alamat;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Kelas;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Jurusan;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Email;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Kontak; ////////////////
+          }
+       }
+
+        var divContainer = document.getElementById("showData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+        document.getElementById("loader").style.visibility = "hidden";
+     $("#re").css("visibility","visible");
+
+     $("#id").val("")
+     $("#nama").val("")
+     $("#gender").val("")
+     $("#alamat").val("")
+     $("#kelas").val("")
+     $("#jurusan").val("")
+     $("#email").val("")
+     $("#kontak").val("")
+      getData2Input();///////////////////
+    });
+ }
+//////////// Ketika data dalam tabel diklik
+ function getData2Input(){
+  var table = document.getElementById("myTable");
+
+  if (table) {
+    for (var i = 0; i < table.rows.length; i++) {
+      table.rows[i].onclick = function() {
+        tableText(this);
+      }
+    }
+  }
+}
+
+///////////////////Ekstrak data dari Spreadsheet dan tampilkan di kolom.
+
+function tableText(tableRow) {
+  var id = tableRow.childNodes[0].innerHTML;
+  var nama = tableRow.childNodes[1].innerHTML;
+  var gender = tableRow.childNodes[2].innerHTML;
+  var alamat = tableRow.childNodes[3].innerHTML;
+  var kelas = tableRow.childNodes[4].innerHTML;
+  var jurusan = tableRow.childNodes[5].innerHTML;
+  var email = tableRow.childNodes[6].innerHTML;
+  var kontak = tableRow.childNodes[7].innerHTML;//////////
+  $("#id").val(id)
+  $("#nama").val(nama)
+  $("#gender").val(gender)
+  $("#alamat").val(alamat)
+  $("#kelas").val(kelas)
+  $("#jurusan").val(jurusan)
+  $("#email").val(email)
+  $("#kontak").val(kontak)
+
+}
+  </script>
+
+</head>
+<body>
+
+<!-- Buat Formulir -->
+   <div class="wrapper">
+    <div class="title">
+      <p>DATA SISWA</p>
+      <a href="#mrphekeModal1" class="btn btn-primary" style="font-size: 13px;width: 150px;float: left;" data-toggle="modal"><i class="material-icons"></i>Spreadsheet</a>
+    </div>
+    <div class="form">
+     <div class="inputfield">
+       <label></label>
+        <input type = "number" name ="srchID" id="srchID" placeholder="Search by ID"style="text-align: center;"> &nbsp; <input type="button" style="font-size:12pt;color:white;background-color:#5F9EA0;border:1px solid #000000;padding:2px" onclick="read_value($('#srchID').val())" value="Search"/>
+       </div>
+      <div class="inputfield">
+          <label>ID</label>
+          <input type="number" name="id" id="id"class="input" placeholder="Input ID">
+       </div>
+       <div class="inputfield">
+          <label>Nama</label>
+          <input type="text" name="nama" id="nama"class="input" placeholder="Input nama lengkap">
+       </div>
+      <div class="inputfield">
+          <label>Gender</label>
+          <select type="text"  name="gender" id="gender" class="input">
+            <option>---Pilih gender---</option>
+            <option>Laki-laki</option>
+            <option>Perempuan</option>
+          </select>
+      </div>
+       <div class="inputfield">
+          <label>Alamat</label>
+          <textarea type="text"  name="alamat" id="alamat" class="input" placeholder="Input alamat lengkap"></textarea>
+      </div>
+       <div class="inputfield">
+          <label>Kelas</label>
+          <select type="text"  name="kelas" id="kelas" class="input">
+            <option>---Pilih kelas---</option>
+            <option>X (Sepuluh)</option>
+            <option>XI (Sebelas)</option>
+            <option>XII (Duabelas)</option>
+          </select>
+      </div>
+       <div class="inputfield">
+          <label>Jurusan</label>
+          <select type="text"  name="jurusan" id="jurusan" class="input">
+            <option>---Pilih jurusan---</option>
+            <option>IPA</option>
+            <option>IPS</option>
+            <option>TKJ</option>
+          </select>
+      </div>
+       <div class="inputfield">
+          <label>Email</label>
+          <input type="email"  name="email" id="email" class="input" placeholder="Input email">
+      </div>
+      <div class="inputfield">
+          <label>Kontak</label>
+          <input type="text" name="kontak" id="kontak" class="input" placeholder="Input nomor telepon">
+       </div>
+    <div align="center">
+        <input type ="button" style="width: 100px;font-size:10pt;font-weight: bold;color:white;background-color:#228B22;border:1px solid #000000;padding:2px"
+    id = "b1" onClick="insert_value()" value = "SUBMIT">
+        <input type="button" style="width: 100px;font-size:10pt;font-weight: bold;color:white;background-color:#DAA520;border:1px solid #000000;padding:2px"
+    onclick="read_value('')" value="READ">
+       <input type="button" style="width: 100px;font-size:10pt;font-weight: bold;color:white;background-color:#0000CD;border:1px solid #000000;padding:2px"
+    onclick="update_value()" value="UPDATE">
+        <input type="button" style="width: 100px;font-size:10pt;font-weight: bold;color:white;background-color:#B22222;border:1px solid #000000;padding:2px"
+    onclick="delete_value()" value="DELETE">
+      </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Memanggil loader-->
+    <div id="loader"></div>
+    <p id="re"></p>
+    <div id="showData"style="color: #ffffff;font-weight: bold;"></div>
+
+     <div id="mrphekeModal1" class="modal fade">
+        <form name="google-sheet">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                    <div class="modal-header">
+                   <button type="button" class="btn btn-primary"data-dismiss="modal"style="font-size:10pt;font-weight: bold;color:white;background-color:#B22222;border:1px solid #000000;padding:2px;float: left;">CLOSE</button>
+                        <iframe src="https://docs.google.com/spreadsheets/d/19ih-pdpXymlN-vXlgSFvsbBlfI9RmPUodFf6Aczqkm0/edit#gid=0"style="width: 100%;height: 450px;"></iframe>
+                </form>
+            </div>
+        </div>
+    </div>
+  </header>
+</section>
+</body>
+</html>
